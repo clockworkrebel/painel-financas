@@ -1,0 +1,29 @@
+# Segredos
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+
+# Dados locais (o dado vive no R2; só fixtures pequenas entram no git)
+dados/
+
+# Node / Next.js (Fase 1.5 em diante)
+node_modules/
+.next/
+.vercel/
+
+# Editor e sistema
+.DS_Store
+.obsidian/

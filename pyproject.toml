@@ -1,0 +1,19 @@
+[project]
+name = "painel-financas"
+version = "0.1.0"
+description = "Painel de finanças municipais de Ferraz de Vasconcelos (SP) a partir de fontes oficiais"
+requires-python = ">=3.11"
+dependencies = [
+    "pyspark==4.0.1",
+    "boto3>=1.35",
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools]
+packages = ["pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

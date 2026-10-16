@@ -1,0 +1,29 @@
+{
+  "name": "painel-financas",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "features": {
+    // Spark 4 exige Java 17 ou mais novo
+    "ghcr.io/devcontainers/features/java:1": { "version": "17" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "lts" }
+  },
+  "hostRequirements": { "cpus": 2 },
+  "postCreateCommand": "pip install --user -e '.[dev]' && python scripts/baixar_jars.py",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  // Segredos do Codespaces (github.com/settings/codespaces) viram variáveis de ambiente
+  "secrets": {
+    "R2_ACCOUNT_ID": { "description": "ID da conta Cloudflare (painel do R2, lateral direita)" },
+    "R2_ACCESS_KEY_ID": { "description": "Access Key ID do token de API do R2" },
+    "R2_SECRET_ACCESS_KEY": { "description": "Secret Access Key do token de API do R2" },
+    "R2_BUCKET": { "description": "Nome do bucket, por exemplo painel-financas" }
+  }
+}
